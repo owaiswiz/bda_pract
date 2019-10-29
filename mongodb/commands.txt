@@ -1,0 +1,44 @@
+1] Create database/ Switch to a database named bigdata
+  -> use bigdata;
+
+2] Create collection
+  -> db.createCollection("users");
+
+3] Insert into collection
+  -> db.users.insert({first_name:"owais", last_name: "khan", byear:1999})
+
+3] Update
+  -> db.users.update({first_name: "owais"}, {first_name:"o", last_name: "khan", byear:1999})
+  -> First argument is matching criteria
+  -> Second argument is what we need the updated record to be
+
+4] Find
+  -> db.users.find()
+  -> Without any arguments find() will return everything
+  -> to search by a criteria, pass in the argument as an argument
+  -> db.users.find({byear:1999})
+
+5] Remove
+  -> db.users.remove({first_name:"owais"})
+
+6] Show
+  -> show tables;
+  -> show collections;
+  -> Above 2 are same
+  -> show databases;
+
+7] Pretty
+  -> db.users.find().pretty()
+
+8] Sort
+  -> To sort by byear in ascending order
+      -> db.users.find().sort({byear: 1})
+
+  -> To sort by byear in descending order
+      -> db.users.find().sort({byear: -1})
+
+9] Misc
+  -> db.users.stats().count
+  -> db.users.stats().size
+  -> db.users.stats().storageSize
+  -> db.users.stats({indexDetails: true}).indexSizes
